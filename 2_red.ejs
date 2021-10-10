@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF voilet</title>
+    <style>
+      @media print {
+    body {-webkit-print-color-adjust: exact;}
+    .Main , 
+    .skill-set li{
+      background:rgb(134, 17, 17) !important;
+      color: white !important;
+
+
+
+    }
+
+        .Main { height:11in;
+        width :8.5in;
+              }
+        html
+{
+    font-size:100%;
+    background-color:rgba(0,0,0,.025);
+    height: 80%;
+    width: 33.33%;
+}
+
+body
+{
+	-webkit-font-smoothing:antialiased;
+	color:#333332;
+	font-family:Lora, serif;
+	font-size:18px;
+	line-height:1.4;
+	text-rendering:optimizeLegibility;
+}
+
+
+h1
+{
+	color:rgba(0,0,0,.75);
+}
+
+
+
+.left
+{
+	background-color:rgba(0,0,0,.025);
+	border-right:1px solid rgba(9, 1, 12, 0.39);
+
+	margin-left:-1px;
+	min-width:256px;
+	position:fixed;
+  
+}
+
+.right
+{
+	float:right;
+	height:100%;
+	position:relative;
+    width:66.66%;
+    background-color: white;
+
+}
+
+
+.name-hero{
+    border: 10px solid rgba(11, 1, 15, 0.253);
+    padding: 8px;
+}
+.name-hero h1
+{
+	font-family:Open Sans, sans-serif;
+	font-size:1.5em;
+	text-align:center;
+  color: white !important;
+}
+
+.name-hero h1 em
+{
+	color:rgba(0,0,0,.3);
+	font-style:normal;
+	font-weight:700;
+  color: white !important;
+}
+
+.name-hero p
+{
+	color:rgba(0,0,0,.5);
+	font-size:.75em;
+	line-height:1.5;
+	margin:0 8px 0 0;
+	text-align:center;
+  color: white !important;
+}
+
+.name-hero .name-text
+{
+	margin:2 auto;
+	width:50%;
+}
+
+.inner
+{
+	margin:0 auto;
+	max-width:975px;
+	padding-left:3em;
+}
+
+.inner h1
+{
+	font-size:1.0em;
+}
+
+.inner p 
+{
+	color:rgba(75, 71, 71, 0.589);
+}
+.inner p em
+{
+	color:rgba(20, 19, 19, 0.75);
+	font-style:normal;
+}
+
+.inner section
+{
+	margin:100px auto;
+}
+
+ul
+{
+	list-style-type:none;
+	margin-top:-10px;
+	max-width:570px;
+	padding:0;
+}
+
+.skill-set li
+{
+	border-radius:5px;
+	color:rgba(0, 0, 0, 0.746);
+	display:inline-block;
+	list-style:none;
+	margin:15px 15px 0 0;
+	padding:10px;
+	text-align:justify;
+}
+
+.head{
+  margin-top: 50px;
+}
+}
+
+  
+
+
+
+    </style>
+</head>
+<body>
+    <div class="Main card">
+            <div class="left">
+                <div class="name-hero">  
+                  <div class="name-text">
+                    
+                    <h1><%=appuser.FName %>  <em> <%=appuser.LName %></em></h1>
+                    <p><%=appuser.address %></p>
+                    <p><%=appuser.Email %></p> 
+                    <p><%=appuser.Phone %></p>
+                 
+                  </div>
+               
+                </div>
+                
+              </div>
+             <div class="right"> 
+                <div class="inner">
+                 <section class="section">
+                    <h1 > 
+                        <%= appuser.when != 'undefined' ? 'EMPLOYMENT:' : '' %></h1>
+                    <%if(appuser.when !=''){%>
+                    <p><em> 
+                        <%= appuser.when != 'undefined' ? appuser.when : '' %> | 
+                        <%= appuser.where != 'undefined' ? appuser.where : '' %> | 
+                        <%= appuser.Desig != 'undefined' ? appuser.Desig : '' %>
+                    </em></p>
+                    <%}%>
+                    <%if(appuser.when2 !=''){%>
+                    <p><em> 
+                        <%= appuser.when2 != 'undefined' ? appuser.when2 : '' %> | 
+                        <%= appuser.where2 != 'undefined' ? appuser.where2 : '' %> | 
+                        <%= appuser.Desig2 != 'undefined' ? appuser.Desig2 : '' %>
+                    </em></p>
+                    <%}%>
+                    <%if(appuser.when3 !=''){%>
+                    <p><em>
+                        <%= appuser.when3 != 'undefined' ? appuser.when3 : '' %> | 
+                        <%= appuser.where3 != 'undefined' ? appuser.where3 : '' %> | 
+                        <%= appuser.Desig3 != 'undefined' ? appuser.Desig3 : '' %>
+                    </em></p>
+                    <%}%>
+                   
+                    
+                    <h1 class="head"><%=appuser.skill_1 != 'undefined' ? 'SKILL SET' : '' %> </h1>
+                    <ul class="skill-set">
+                        <%if(appuser.skill_1 != ''){%>
+                            <li> <%= appuser.skill_1 != 'undefined' ? appuser.skill_1 : '' %></li>
+                        <%}%>
+                        <%if(appuser.skill_2 != ''){%>
+                            <li> <%= appuser.skill_2 != 'undefined' ? appuser.skill_2 : '' %></li>
+                        <%}%>
+                        <%if(appuser.skill_3 != ''){%>
+                            <li> <%= appuser.skill_3 != 'undefined' ? appuser.skill_3 : '' %></li>
+                        <%}%>
+                    </ul>
+
+                    <h1 class="head">  <%= appuser.edu != 'undefined' ? 'EDUCATION' : '' %>  </h1>
+                    <%if(appuser.edu != ''){%>
+                    <p><em><%= appuser.edu != 'undefined' ? appuser.edu : '' %> | <%= appuser.degree != 'undefined' ? appuser.degree : ''  %> | <%= appuser.field != 'undefined' ? appuser.field : '' %></em></p>
+                    <%}%>
+                    <%if(appuser.edu2 != ''){%>
+                    <p><em><%= appuser.edu2 != 'undefined' ? appuser.edu2 : '' %> | <%= appuser.degree2 != 'undefined' ? appuser.degree2 : ''  %> | <%= appuser.field2 != 'undefined' ? appuser.field2 : '' %></em></p>
+                    <%}%>
+                    <%if(appuser.edu3 != ''){%>%>
+                    <p><em>
+                        <%= appuser.edu3 != 'undefined' ? appuser.edu3 : '' %> | 
+                        <%= appuser.degree3 != 'undefined' ? appuser.degree3 : ''  %> | 
+                        <%= appuser.field3 != 'undefined' ? appuser.field3 : '' %></em></p>
+                    <%}%>               
+                    <h1 class="head"> <%= appuser.int_1 != 'undefined' ? 'INTEREST' : '' %></h1>
+                    
+                    <p><%= appuser.int_1 != 'undefined' ? appuser.int_1 : ''%></p>
+                    <p><%= appuser.int_2 != 'undefined' ? appuser.int_2 : ''%></p>
+                    <p><%= appuser.int_3 != 'undefined' ? appuser.int_3 : ''%></p>
+
+                  </section> 
+                </div>    
+              </div>    
+            </div>
+            
+    </div>
+    
+</body>
+</html>

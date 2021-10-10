@@ -1,0 +1,126 @@
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 myflex">
+              <img class="logoEdit" src="/static/myleave.png" alt="NED">
+                <a class="navbar-brand mylogo mt-2" href="/">Resume.pk</a>
+            </div>
+            
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto nav-tabs">
+                <%if(title=='Home'){%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">HOME
+                        </a>
+                    </li>
+                <%}else{%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">HOME
+                        </a>
+                    </li>
+                <%}%>
+                <%if(title=='Templates'){%>
+                
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/templates">TEMPLATES </a>
+                    </li>
+                <%}else{%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/templates">TEMPLATES </a>
+                    </li>
+                <%}%>
+                <%if(title=='Examples'){%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/examples">EXAMPLES </a>
+                    </li>
+                <%}else{%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/examples">EXAMPLES </a>
+                    </li>
+                <%}%>
+                <%if(typeof currentuser == 'undefined'){%>
+                
+                    <%if(title=='Login'){%>
+                        <li class="nav-item active">
+                            <a class="nav-link"  href="/login">LOGIN</a>
+                            
+                        </li>
+                    <%}else{%>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/login">LOGIN</a>        
+                        </li>
+                    <%}%>
+                    <%if(title=='Signup'){%>
+                            
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/signup">SIGN UP</a>
+                        </li>
+                    <%}else{%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup">SIGN UP</a>
+                        </li>
+                    <%}%>
+             <%}else{%>
+                <%if(title=='Dashboard'){%>
+                            
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login/Dashboard">DASHBOARD</a>
+                    </li>
+                <%}else{%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/Dashboard">DASHBOARD</a>
+                    </li>
+                <%}%>
+            <%}%>
+ 
+            </ul>
+            
+            <% if (typeof currentuser!= 'undefined'){%>
+                <% if (currentuser!=''){ %>
+                    
+                    
+                    <ul>
+                        <li class="nav-item dropdown has-arrow-waves-effect" >
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown " role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="dot text-center"><%=  currentuser.first_name[0].toUpperCase()%></span>
+                            </a>
+                        <div class="dropdown-menu justify=content-center" aria-labelledby="navbarDropdown" >
+                            <a class="dropdown-item" href="/login/Dashboard">Dashboard</a>
+                            <a class="dropdown-item" href="/privacy">Privacy Policy</a>
+                            <a class="dropdown-item" href="/logout">Log out</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteUser" >Terminate Account</a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <% } %>
+            <% } %>
+            </div>
+        </div>
+      </nav>
+      <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="delete_pdf" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="delete_account">Terminate Account</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Do you want to terminate your Account?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <a type="button" class="btn btn-secondary" href="/terminate" class="btn btn-danger">Terminate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>

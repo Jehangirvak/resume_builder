@@ -1,0 +1,81 @@
+<% if(title == 'Dashboard'){%>
+  <style>
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      line-height: 60px;
+    }
+  </style>
+  <%}%>
+
+<% if(data){%>
+  <div class='container mt-20'>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"> S.No</th>
+          <th scope="col"> Date</th>
+          <!-- <th scope="col"> ID</th> -->
+          <!-- <th scope="col"> time</th> -->
+          <th scope="col"> Template Name</th>
+          <th scope="col"> Color</th>
+          <th scope="col"> Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- loop here -->
+        <% JSON.stringify(data) %>
+        <% for(var i=0; i < data.length; i++) {%>
+            <tr>
+              <td><%= i+1%></td>
+              <td><%= date_list[i]%></td>
+              <!-- <td><%= data[i]._id%></td> -->
+              <!-- <td><%= data[i].time%></td> -->
+              <td><%= data[i].t_name%></td>
+              
+              <td><%= data[i].t_color%></td>
+              <td class="text-right">
+                <a href="/templates/template_edit_id/<%= data[i]._id%>" class="btn btn-secondary">
+                  <i class="fa fa-edit"></i> Edit</a>
+                  
+                  <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteModal<%=i%>"><i class="fa fa-trash"></i> delete</a>
+                  <a href="/pdf/<%= data[i]._id%>" target="_blank" id='Download' class="btn btn-secondary"><i class="fa fa-download" ></i> Download</a>
+                </td>
+                <td>
+                <div class="modal fade" id="deleteModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="delete_pdf" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="delete_pdf">Delete Pdf</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Do you want to Delete <%= data[i].pdf_path %> ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a type="button" class="btn btn-secondary" href="/templates/del/<%= data[i]._id%>" class="btn btn-danger">DELETE</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+               
+              </td>
+              
+            <!-- delete modal -->
+            </tr>
+           
+            <% } %>
+          </tbody>
+        </table>
+        <%}%>
+         
+    
+    
+
+    
+</div>

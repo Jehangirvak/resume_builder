@@ -1,0 +1,189 @@
+<style type="text/css">
+*{
+    font-size: medium;
+}
+.main {
+    background-color: black !important;
+    padding-left:15px !important;
+    padding-top: 5px !important;
+    padding-bottom: 15px !important;
+
+}
+
+p{
+    font-size: x-small;
+}
+
+.innerinfo{
+    margin:20px;
+    margin-top: 2px;
+    width :6.1in;
+height : 9.1in
+}
+
+h4{
+font-size: x-small;
+    font-weight: 800;
+}
+h3{
+font-weight: 700;
+font-size: xx-small;
+
+}
+.card{
+text-align: unset;
+width :6.6in;
+height : 8.9in
+
+}
+.mymain {    
+color:white ;
+justify-content: center;
+width: 6.6in;
+padding-left:20px !important;
+padding-top: 50px !important;
+padding-bottom: 20px !important;
+
+}
+
+#obj ,#emp {
+    width: 80%;
+}
+
+
+</style>
+
+<div class="card template">
+    
+    <div class="mymain" id="mymaincol">
+        <h3>
+        
+            <span style="font-size: 1.5rem;padding-right:1rem" id="Fnamehead">
+                <%= biodata.FName != 'undefined' ? biodata.FName : '' %></span>
+            <span style="font-size: 1.5rem;padding-left:1rem" id="Lnamehead">
+                <%= biodata.LName != 'undefined' ? biodata.LName : '' %></span>
+        </h3>    
+        <h5 style="font-size: 1rem;"id="IDhead">
+                <%= biodata.Email != 'undefined' ? biodata.Email : '' %>
+        </h5>
+        <h6 style="font-size: 0.8rem" id="phonehead">
+               <%= biodata.Phone != 'undefined' ? biodata.Phone : '' %>
+          
+        </h6>
+        <h6 style="font-size: 0.8rem" id="address_data">
+            <%= biodata.address != 'undefined' ? biodata.address : '' %>
+       
+     </h6>
+    </div>
+    <div class="container innerinfo">
+        <!-- objective-->
+        <div>
+            <h5>
+                <b id="obj_heading">
+                    OBJECTIVE
+                </b>
+            </h5>
+            <div id="obj_data">
+                <%= biodata.obj != 'undefined' ||  biodata.obj != '' ? biodata.obj : '' %>
+            </div>
+        </div>
+        <!-- Experience-->
+        <div>
+            <h5>
+                <b id="skill_Heading">
+                    <%= biodata.skill_1 != 'undefined' || biodata.skill_1 != '' ? 'SKILLS' : '' %>
+                </b>        
+            </h5>
+            <div id="exp">
+            <p>
+                <strong id='skill_1_t'>
+                    <%= biodata.skill_1 != 'undefined' ? biodata.skill_1 : '' %>
+
+                </strong> 
+            </p>
+            <p> <strong id='skill_2_t'>
+                    <%= biodata.skill_2 != 'undefined' ? biodata.skill_2 : ''  %>
+
+                </strong> 
+            </p>
+            <p>    <strong id='skill_3_t'>
+                    <%= biodata.skill_3 != 'undefined' ? biodata.skill_3 : '' %>
+
+                </strong> 
+            </p>    
+            </div>
+        </div>
+        <div>
+            <h5>
+
+            <b id = "work_heading">
+                <%= biodata.Where != 'undefined' || biodata.Where != '' ? 'WORK EXPERIENCE' : '' %> 
+            </b>        
+            </h5>
+            <div id="exp">
+                <p>
+                    <strong id="where_data">
+                        <%= biodata.Where != 'undefined' ? biodata.Where : '' %>
+                    </strong> 
+                    <span id="when_data"> 
+                        <%= biodata.When != 'undefined' ? biodata.When : '' %></span>
+                    <p id="Desig_data"><%= biodata.Desig != 'undefined' ? biodata.Desig : '' %></p>
+                </p><p>
+                    <strong id="where_data2">
+                        <%= biodata.Where2 != 'undefined' ? biodata.Where2 : ''%>
+                    </strong> 
+                    <span id="when_data2"> 
+                        <%= biodata.When2 != 'undefined' ? biodata.When2 : '' %></span>
+                    <p id="Desig_data2"><%= biodata.Desig2 != 'undefined' ? biodata.Desig2 : '' %></p>
+                </p><p>
+                    <strong id="where_data3">
+                        <%= biodata.Where3 != 'undefined' ? biodata.Where3 : '' %>
+                    </strong> 
+                    <span id="when_data3"> 
+                        <%= biodata.When3 != 'undefined' ? biodata.When3 : '' %></span>
+                    <p id="Desig_data3"><%= biodata.Desig3 != 'undefined' ? biodata.Desig3 : '' %></p>
+                </p>    
+            </div>
+            
+        </div>
+        <div>
+            <h5>
+                <b id="education">
+                    <%= biodata.edu != 'undefined' || biodata.edu != '' ? 'EDUCATION' : '' %>  
+                </b>
+            </h5>
+            <p>
+                <h6 id="field_data"><%= biodata.field != 'undefined' ? biodata.field : '' %></h6>
+                <strong id="degree_data"><%= biodata.degree != 'undefined' ? biodata.degree : ''  %></strong>
+                <p id="edu_data"><%= biodata.edu != 'undefined' ? biodata.edu : '' %></p>
+            </p>
+            <p>
+                <h6 id="field_data2"><%= biodata.field2 != 'undefined' ? biodata.field2 : '' %></h6>
+                <strong id="degree_data2" ><%= biodata.degree2 != 'undefined' ? biodata.degree2 : '' %></strong>
+                <p id="edu_data2"><%= biodata.edu2 != 'undefined' ? biodata.edu2 : '' %></p>
+            </p>
+            <p>
+                <h6 id="field_data3"><%= biodata.field3 != 'undefined' ? biodata.field3 : '' %></h6>
+                <strong id="degree_data3" ><%= biodata.degree3 != 'undefined' ? biodata.degree3 : '' %></strong>
+                <p id="edu_data3"><%= biodata.edu3 != 'undefined' ? biodata.edu3 :'' %></p>
+            </p>
+        </div>
+        <div>
+            <h5>
+                <b id="interest">
+                    <%= biodata.int_1 != 'undefined' || biodata.int_1 !=''  ? 'INTEREST' : '' %>
+                </b>
+            </h5>
+            <p id="int_data"><%= biodata.int_1 != 'undefined' ? biodata.int_1 : ''%></p>
+            <p id="int_data2"><%= biodata.int_2 != 'undefined' ? biodata.int_2 : ''%></p>
+            <p id="int_data3"><%= biodata.int_3 != 'undefined' ? biodata.int_3 : ''%></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    let template_color='<%- template_color%>';
+    document.getElementById('mymaincol').style.backgroundColor=template_color;
+    document.getElementsByClassName(template_color).myradio.checked=true;
+
+  </script>

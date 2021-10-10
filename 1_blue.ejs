@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="print" href="../style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      @media print {
+    body {-webkit-print-color-adjust: exact;}
+    
+    .main {
+        background-color: #1a4567 !important;
+        padding-left:15px !important;
+        padding-top: 80px !important;
+        padding-bottom: 15px !important;
+
+    }
+    h1,h4,h5{
+        
+        color:white !important;
+    }
+}
+
+  </style>
+</head>
+<body>
+    <div class="card">
+       <div class="container main">
+            <h1>
+                <%=appuser.FName %> <%=appuser.LName %> 
+            </h1>    
+            <h4><%=appuser.Email %></h4>
+            <h5>
+                <%=appuser.Phone %>
+            </h5>
+            <h5>
+                <%=appuser.address %>
+            </h5>
+        </div>
+        <div class="container innerinfo">
+            <!-- objective-->
+            <div>
+    
+                <h4>
+                   <b id="obj_heading">
+                    <%= appuser.obj != 'undefined' ? 'OBJECTIVE' : '' %>
+                </b>
+                </h4>
+                <div id="obj">
+                    <%=appuser.obj%>
+                </div>
+            </div>
+            <!-- Experience-->
+            <div>
+                <h4>
+                    <b>
+                      <%=appuser.skill_1 ? 'SKILLS' : '' %> 
+                    </b>        
+                </h4>
+                <div id="exp">
+                        <p>
+                        <strong id='skill_1_t'>
+                            <%= appuser.skill_1 != 'undefined' ? appuser.skill_1 : '' %>
+
+                        </strong> 
+                    </p>
+                    <p> <strong id='skill_2_t'>
+                            <%= appuser.skill_2 != 'undefined' ? appuser.skill_2 : ''  %>
+
+                        </strong> 
+                    </p>
+                    <p>    <strong id='skill_3_t'>
+                            <%= appuser.skill_3 != 'undefined' ? appuser.skill_3 : '' %>
+
+                        </strong> 
+                    </p>    
+                </div>
+            </div>
+            <div>
+                <h4>
+    
+                <b>
+                   <%= appuser.when ? 'WORK EXPERIENCE:' : '' %>
+                </b>        
+                </h4>
+                <div id="exp">
+                   <p>
+                    <strong id="where_data">
+                        <%= appuser.where != 'undefined' ? appuser.where : '' %>
+                    </strong> 
+                    <span id="when_data"> 
+                        <%= appuser.when != 'undefined' ? appuser.when : '' %></span>
+                    <p id="Desig_data"><%= appuser.Desig != 'undefined' ? appuser.Desig : '' %></p>
+                </p><p>
+                    <strong id="where_data2">
+                        <%= appuser.where2 != 'undefined' ? appuser.where2 : ''%>
+                    </strong> 
+                    <span id="when_data2"> 
+                        <%= appuser.when2 != 'undefined' ? appuser.when2 : '' %></span>
+                    <p id="Desig_data2"><%= appuser.Desig2 != 'undefined' ? appuser.Desig2 : '' %></p>
+                </p><p>
+                    <strong id="where_data3">
+                        <%= appuser.where3 != 'undefined' ? appuser.where3 : '' %>
+                    </strong> 
+                    <span id="when_data3"> 
+                        <%= appuser.when3 != 'undefined' ? appuser.when3 : '' %></span>
+                    <p id="Desig_data3"><%= appuser.Desig3 != 'undefined' ? appuser.Desig3 : '' %></p>
+                </p>    
+                    
+                </div>
+                
+            </div>
+            <div>
+                <h4>
+                     <b id="education">
+                    <%= appuser.edu != 'undefined' ? 'EDUCATION' : '' %>  
+                </b>
+                </h4>
+                <p>
+                <h6 id="field_data"><%= appuser.field != 'undefined' ? appuser.field : '' %></h6>
+                <strong id="degree_data"><%= appuser.degree != 'undefined' ? appuser.degree : ''  %></strong>
+                <p id="edu_data"><%= appuser.edu != 'undefined' ? appuser.edu : '' %></p>
+            </p>
+            <p>
+                <h6 id="field_data2"><%= appuser.field2 != 'undefined' ? appuser.field2 : '' %></h6>
+                <strong id="degree_data2" ><%= appuser.degree2 != 'undefined' ? appuser.degree2 : '' %></strong>
+                <p id="edu_data2"><%= appuser.edu2 != 'undefined' ? appuser.edu2 : '' %></p>
+            </p>
+            <p>
+                <h6 id="field_data3"><%= appuser.field3 != 'undefined' ? appuser.field3 : '' %></h6>
+                <strong id="degree_data3" ><%= appuser.degree3 != 'undefined' ? appuser.degree3 : '' %></strong>
+                <p id="edu_data3"><%= appuser.edu3 != 'undefined' ? appuser.edu3 :'' %></p>
+            </p>
+            </div>
+            <div>
+                <b id="interest">
+                    <%= appuser.int_1 != 'undefined' ? 'INTEREST' : '' %>
+                </b>
+                <p id="int_data"><%= appuser.int_1 != 'undefined' ? appuser.int_1 : ''%></p>
+            <p id="int_data2"><%= appuser.int_2 != 'undefined' ? appuser.int_2 : ''%></p>
+            <p id="int_data3"><%= appuser.int_3 != 'undefined' ? appuser.int_3 : ''%></p>
+               
+            </div>
+        </div>
+
+
+           
+    </div>
+</body>
+
+</html>
